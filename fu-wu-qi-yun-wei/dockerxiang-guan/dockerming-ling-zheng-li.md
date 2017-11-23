@@ -100,11 +100,7 @@ docker ps -a
 
 [root@localhost ~]# docker ps -a
 CONTAINER ID     IMAGE            COMMAND        CREATED           STATUS           PORTS                    NAMES
-c50a9c160f93     e0823ecf5b59     "npm start"    45 minutes ago    Up 45 minutes    0.0.0.0:8000-
->
-8000/tcp   kickass_bohr
-
-
+c50a9c160f93     e0823ecf5b59     "npm start"    45 minutes ago    Up 45 minutes    0.0.0.0:8000->8000/tcp   kickass_bohr>>
 ```
 
 #### 查看容器的PID
@@ -193,7 +189,6 @@ c50a9c160f93     e0823ecf5b59     "npm start"    45 minutes ago    Up 45 minutes
 ```
 [root@localhost mao_siyu]# cat das0.3.tar | docker import - das:0.3
 
-
 ```
 
 #### 保存镜像
@@ -216,6 +211,7 @@ c50a9c160f93     e0823ecf5b59     "npm start"    45 minutes ago    Up 45 minutes
 
 ```
 [root@localhost mao_siyu]# docker logs -f -t c50a9c160f93
+
 ```
 
 
