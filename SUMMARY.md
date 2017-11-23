@@ -7,6 +7,7 @@
     * [使用国内镜像安装Docker](fu-wu-qi-yun-wei/dockerxiang-guan/docker-xue-xi-bi-8bb028-4e0029-guo-nei-jing-xiang-an-zhuang-docker.md)
     * [使用Docker下载/安装/运行 CentOS 7](fu-wu-qi-yun-wei/dockerxiang-guan/shi-yong-docker-xia-8f7d-an-88c5-yun-xing-centos-7.md)
     * [Docker在CentOS7容器中安装 Vim \| Node.js \| Java \| Git](fu-wu-qi-yun-wei/dockerxiang-guan/dockerzai-centos7-rong-qi-zhong-an-zhuang-vim-node-js-java-git.md)
+    * Docker commit 将容器保存为一个新的镜像
 * [后台开发相关](hou-tai-kai-fa-xiang-guan.md)
   * [Java知识库](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku.md)
     * [SpringBoot+MyBatis让日志输出SQL的方法](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku/springboot+mybatisrang-ri-zhi-shu-chu-sql-de-fang-fa.md)
