@@ -189,25 +189,12 @@ cd ~
 
 ```
  [root@532744324fcc /]# source /home/bigdata/start.sh
-
-
->
- client@1.0.0 start /home/bigdata/client
-
->
- nuxt start
-
+> client@1.0.0 start /home/bigdata/client
+> nuxt start
+ 
  OPEN  http://172.17.0.2:3000
 
 ```
 
-**172.17.0.2本机的IP地址,**
-
-**`因为Nuxt.js 框架映射的问题, 必须要这么指定`**
-
-**, 启动其它项目不需要指定本机IP地址**
-
-\]
-
-&gt;
+**172.17.0.2本机的IP地址，因为Nuxt.js 框架映射的问题, 必须要这么指定, 启动其它项目不需要指定本机IP地址**
 
