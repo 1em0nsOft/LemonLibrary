@@ -1,6 +1,6 @@
 ### 下载
 
-```
+```bash
 [root@zhujiwu home]# docker pull registry.docker-cn.com/cptactionhank/atlassian-bitbucket
 Using default tag: latest
 latest: Pulling from cptactionhank/atlassian-bitbucket
@@ -20,5 +20,37 @@ Status: Downloaded newer image for registry.docker-cn.com/cptactionhank/atlassia
 [root@zhujiwu home]# docker images
 REPOSITORY                                                 TAG                 IMAGE ID            CREATED             SIZE
 registry.docker-cn.com/cptactionhank/atlassian-bitbucket   latest              e708ca3f0564        3 days ago          1.04GB
+```
+
+### 运行
+
+```bash
+[root@zhujiwu home]# docker run -d -p 7990:7990 --restart always -v /home/bitbucket:/var/atlassian/application-data/bitbucket --name msy-bitbucket e708ca3f0564
+2936b718c277ccb4381152fcaaa2b69dfe263057fb2840efbbf0f9a55313171a
+[root@zhujiwu home]#
+[root@zhujiwu home]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                              NAMES
+2936b718c277        e708ca3f0564        "/docker-entrypoin..."   5 minutes ago       Up 4 minutes        0.0.0.0:7990->7990/tcp, 7999/tcp   msy-bitbucket
+```
+
+### 进入容器bash
+
+> 命令 格式：docker exec -it CONTAINER ID /bin/bash
 
 ```
+[root@zhujiwu home]# docker exec -it 2936b718c277 /bin/bash
+root@2936b718c277:/var/atlassian/bitbucket#
+```
+
+### 若提示数据库UTF8异常，使用以下SQL命令修改bitbucket对应的数据库
+
+```SQL
+ALTER DATABASE bitbucket_db CHARACTER SET utf8 COLLATE utf8_bin
+```
+
+### 测试
+
+打开 `http://yourip:port` 即可进入bitbucket的自动初始化界面
+
+
+
