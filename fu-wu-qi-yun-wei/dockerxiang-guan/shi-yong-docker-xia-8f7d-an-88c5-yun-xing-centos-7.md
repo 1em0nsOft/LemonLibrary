@@ -1,6 +1,6 @@
 ### 查看Docker Hub官网centos7 镜像
 
-https://hub.docker.com/r/library/centos/tags/
+[https://hub.docker.com/r/library/centos/tags/](https://hub.docker.com/r/library/centos/tags/)
 
 ### 服务器地址: 10.32.156.51
 
@@ -19,7 +19,6 @@ Status: Downloaded newer image for registry.docker-cn.com/library/centos:7
 REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
 registry.docker-cn.com/library/centos   7                   d123f4e55e12        3 days ago          197MB
 [root@localhost dockerImage]#
-
 ```
 
 ## 运行镜像系统
