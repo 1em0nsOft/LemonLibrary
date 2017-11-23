@@ -58,22 +58,9 @@ override_install_langs=en_US.utf8
 ```
 
 ### 安装Node.js
-
-    [root@887006dcf961 /]# curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
-    ......
-    ## Run `yum install -y nodejs` (as root) to install Node.js 6.x and npm.
-    ## You may also need development tools to build native addons:
-    ##   `yum install -y gcc-c++ make`
-    [root@887006dcf961 /]#
-    [root@887006dcf961 /]# yum install -y nodejs
-    [root@887006dcf961 /]#
-    [root@887006dcf961 /]# yum install -y gcc-c++ make
-    [root@887006dcf961 /]#
-    [root@887006dcf961 /]# node -v
-    v6.12.0
-    [root@887006dcf961 /]# npm -v
-    3.10.10
-    [root@887006dcf961 /]#
+```
+    
+```
 
 
 ### 安装OpenJDK
