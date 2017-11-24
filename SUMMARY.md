@@ -9,6 +9,7 @@
     * [Docker commit 将容器保存为一个新的镜像](fu-wu-qi-yun-wei/dockerxiang-guan/docker-commit-jiang-rong-qi-bao-cun-wei-yi-ge-xin-de-jing-xiang.md)
     * [Docker部署安装Bitbucket](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-bitbucket.md)
     * [Docker部署安装Wordpress](fu-wu-qi-yun-wei/dockerxiang-guan/dockeran-zhuang-wordpress.md)
+    * [Docker部署安装Confluence](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-confluence.md)
 * [后台开发相关](hou-tai-kai-fa-xiang-guan.md)
   * [Java知识库](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku.md)
     * [SpringBoot+MyBatis让日志输出SQL的方法](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku/springboot+mybatisrang-ri-zhi-shu-chu-sql-de-fang-fa.md)
