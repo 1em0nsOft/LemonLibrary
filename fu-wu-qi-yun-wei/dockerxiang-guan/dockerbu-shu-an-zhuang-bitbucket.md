@@ -28,7 +28,8 @@ registry.docker-cn.com/atlassian/bitbucket-server
 ### 运行
 
 ```bash
-[root@zhujiwu home]# docker run -d -p 7990:7990 --restart always -v /home/bitbucket:/var/atlassian/application-data/bitbucket --name msy-bitbucket e708ca3f0564
+[root@zhujiwu home]# docker run -d -p 7990:7990 --restart always -v /data/bitbucket:/var/atlassian/application-data/bitbucket
+ --name bitbucket e708ca3f0564
 2936b718c277ccb4381152fcaaa2b69dfe263057fb2840efbbf0f9a55313171a
 [root@zhujiwu home]#
 [root@zhujiwu home]# docker ps -a
