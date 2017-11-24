@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+  * 数据库只是
 * [服务器运维](fu-wu-qi-yun-wei.md)
   * [Docker相关](fu-wu-qi-yun-wei/dockerxiang-guan.md)
     * [Docker命令整理](fu-wu-qi-yun-wei/dockerxiang-guan/dockerming-ling-zheng-li.md)
@@ -15,4 +16,7 @@
 * [后台开发相关](hou-tai-kai-fa-xiang-guan.md)
   * [Java知识库](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku.md)
     * [SpringBoot+MyBatis让日志输出SQL的方法](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku/springboot+mybatisrang-ri-zhi-shu-chu-sql-de-fang-fa.md)
+* 数据库知识
+  * [数据库优化](shu-ju-ku-you-hua.md)
+    * [MySQL常用大表优化方案](shu-ju-ku-you-hua/mysqlchang-yong-da-biao-you-hua-fang-an.md)
 
