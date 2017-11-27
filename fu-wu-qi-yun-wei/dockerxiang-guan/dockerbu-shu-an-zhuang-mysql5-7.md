@@ -1,6 +1,7 @@
-### 查看Docker Hub官网MySQL镜像 https://hub.docker.com/r/library/mysql/tags/
+### 查看Docker Hub官网MySQL镜像 [https://hub.docker.com/r/library/mysql/tags/](https://hub.docker.com/r/library/mysql/tags/)
 
 ### 下载
+
 ```
 docker pull registry.docker-cn.com/library/mysql:5.7
 ```
@@ -28,8 +29,10 @@ registry.docker-cn.com/library/mysql   5.7                 5709795eeffa        1
 ```
 
 ### 运行启动
-映射mysql外网访问端口: 3307
-docker run -p 3307:3306 --restart 策略名称 -e MYSQL_ROOT_PASSWORD=mysql密码 -d 镜像ID
+
+映射mysql外网访问端口: 3307  
+docker run -p 3307:3306 --restart 策略名称 -e MYSQL\_ROOT\_PASSWORD=mysql密码 -d 镜像ID
+
 ```
 [root@localhost ~]# docker images
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -46,9 +49,10 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 > Navicat 测试连接 用户名:root 密码:rootroot 端口:3307
 
 ### Docker容器自启动策略
-`no` 不自动重启容器. (默认value)
-`always` 在容器已经stop掉或Docker stoped/restarted的时候才重启容器
-`on-failure` 容器发生error而退出(容器退出状态不为0)重启容器
+
+`no` 不自动重启容器. \(默认value\)  
+`always` 在容器已经stop掉或Docker stoped/restarted的时候才重启容器  
+`on-failure` 容器发生error而退出\(容器退出状态不为0\)重启容器  
 `unless-stopped` 在容器已经stop掉或Docker stoped/restarted的时候才重启容器
 
 ### 将MySQL的数据存到宿主机上
@@ -56,7 +60,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 命令格式
 
 ```
-docker run -p 3307:3306 --restart 策略名称 -v 宿主机目录:mysql容器目录 -e MYSQL_ROOT_PASSWORD=mysql密码 -d 镜像ID
+docker run -p 3307:3306 --restart 策略名称 -v 宿主机数据目录:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mysql密码 -d 镜像ID
 ```
 
 ```
@@ -70,3 +74,22 @@ docker run -p 3307:3306 --restart 策略名称 -v 宿主机目录:mysql容器目
 ae6ad83608d864a7c4526b511d09a606e95a30d0b9e317473fbdb2b8c4be815d
 [root@localhost mysql-db-backup]#
 ```
+
+
+
+### 使用本地的MySQL配置文件
+
+命令格式
+
+```
+docker run -p 3307:3306 --restart 策略名称 -v 宿主机数据目录:/var/lib/mysql -v 宿主机数据库配置文件目录:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=mysql密码 -d 镜像ID
+```
+
+实际操作
+
+```
+docker run -p 33306:3306 --restart always -v /data/mysql0:/var/lib/mysql -v /data/mysql0_conf:/etc/mysql/connf.d -e MYSQL_ROOT_PASSWORD=rootroot -d 5709795eeffa
+```
+
+
+
