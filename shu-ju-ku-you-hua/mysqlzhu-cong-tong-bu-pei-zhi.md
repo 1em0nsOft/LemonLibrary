@@ -125,7 +125,6 @@ mysql> use mysql
 mysql> select user,authentication_string,host from user;
 ```
 
-
 ### 配置Slave库
 
 #### 首先将Slave库中的数据与Master中的数据同步，用工具导出sql然后同步或直接导出SQLdump备份然后再恢复都可以，同步方式这里不多赘述。
