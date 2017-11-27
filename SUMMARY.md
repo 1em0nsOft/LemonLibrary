@@ -18,4 +18,5 @@
     * [SpringBoot+MyBatis让日志输出SQL的方法](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku/springboot+mybatisrang-ri-zhi-shu-chu-sql-de-fang-fa.md)
 * [数据库知识](shu-ju-ku-zhi-shi.md)
   * [数据库优化](shu-ju-ku-you-hua.md)
+    * [MySQL主从同步配置](shu-ju-ku-you-hua/mysqlzhu-cong-tong-bu-pei-zhi.md)
 
