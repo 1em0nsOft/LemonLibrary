@@ -162,13 +162,50 @@ relay_log_info_repository=TABLE
 ######## MySQL主从配置相关 END #############
 ```
 
+配置保存后重启Docker容器
+
+重启后，首先去A机器查看一下MySQL的Master状态，在Master的MySQL控制台中执行：
 ```
-change master to 
-    master_host='192.168.31.206',
+mysql> show master status \G
+*************************** 1. row ***************************
+             File: mysql-bin.000004
+         Position: 5121
+     Binlog_Do_DB: testgogo
+ Binlog_Ignore_DB: mysql,information_schema,performance_schema,sys
+Executed_Gtid_Set: 
+1 row in set (0.00 sec)
+```
+得到结果后我们将File和Position记录一下，然后放到下面命令中，在Slave机器的MySQL控制台中执行：
+
+```
+stop slave;
+mysql> change master to 
+    master_host='192.168.31.206你的ip',
     master_port=3306,
     master_user='backup',
-    master_password='1em0nsOft+backup',
-    master_log_file='mysql-bin.000001',
-    master_log_pos=154;
+    master_password='123456',
+    master_log_file='mysql-bin.000004',
+    master_log_pos=5121;
+mysql> start slave;
 ```
+上面命令都执行完毕后，执行下面命令查看配置结果：
+```
+mysql> show slave status \G
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+                  Master_Host: 192.168.31.206
+                  Master_User: backup
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000004
+          Read_Master_Log_Pos: 5121
+               Relay_Log_File: b6e1b65991ac-relay-bin.000002
+                Relay_Log_Pos: 604
+        Relay_Master_Log_File: mysql-bin.000004
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+            
+```
+其中Slave_IO_Running和Slave_SQL_Running均为YES说明配置成功。
+接下来可以去Master中进行增删改查数据，然后回Slave进行查看是否同步。
 
