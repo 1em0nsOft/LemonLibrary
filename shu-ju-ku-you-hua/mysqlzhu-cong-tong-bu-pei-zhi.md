@@ -115,6 +115,17 @@ mysql> show variables like '%log_bin%';
 显示log_bin  ON说明成功，接下来创建一个用于同步数据的用户，用户名backup，密码123456
 
 
+```
+grant replication slave on *.* to 'backup'@'%' identified by '123456';
+```
+
+创建完毕后使用命令查看是否创建成功
+```
+mysql> use mysql
+mysql> select user,authentication_string,host from user;
+```
+
+
 ### 配置Slave库
 
 #### 首先将Slave库中的数据与Master中的数据同步，用工具导出sql然后同步或直接导出SQLdump备份然后再恢复都可以，同步方式这里不多赘述。
