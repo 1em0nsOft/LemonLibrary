@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-  * 数据库只是
 * [服务器运维](fu-wu-qi-yun-wei.md)
   * [Docker相关](fu-wu-qi-yun-wei/dockerxiang-guan.md)
     * [Docker命令整理](fu-wu-qi-yun-wei/dockerxiang-guan/dockerming-ling-zheng-li.md)
