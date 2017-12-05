@@ -69,7 +69,7 @@ mkdir -p /data/mongodb0_conf
 cd /data/mongodb0_conf
 openssl rand -base64 741 > mongodb-keyfile  
 chmod 600 mongodb-keyfile
-chown 999 mongodb_keyfile  
+chown 999 mongodb_keyfile
 ```
 
 #### 1. 启动三个mongodb进程 {#1-启动三个mongodb进程}
@@ -178,8 +178,6 @@ docker run --name mongodb-server0 \
     --auth \
     --replSet exuehui-mongo-set
 ```
-
-
 
 > 参考资料：
 >
