@@ -62,6 +62,16 @@ db.createUser({ user: '1iURI', pwd: 'rootroot', roles: [ { role: "userAdminAnyDa
 
 如果你想单点连接，那么从这里往下不需要看了，如果你想搭建MongoDB副本集，那么请移除MongoDB的所有docker容器，重新按照下面的方式启动容器和设置
 
+#### 0. 创建用于auth的keyfile
+
+```
+mkdir -p /data/mongodb0_conf
+cd /data/mongodb0_conf
+openssl rand -base64 741 > mongodb-keyfile  
+chmod 600 mongodb-keyfile
+chown 999 mongodb_keyfile  
+```
+
 #### 1. 启动三个mongodb进程 {#1-启动三个mongodb进程}
 
 ```
@@ -94,7 +104,6 @@ docker run --name mongodb-server0 \
     --smallfiles \
     --keyFile /opt/keyfile/mongodb-keyfile \
     --replSet exuehui-mongo-set
-
 ```
 
 #### 2 进入 mongodb docker {#2-进入-mongodb-docker}
@@ -122,6 +131,55 @@ rs.initiate({ _id:"exuehui-mongo-set", members:[
 ```
 rs.status()
 ```
+
+#### 6.创建权限用户
+
+```
+use admin;
+db.createUser({ user: '1iURI', pwd: 'rootroot', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
+
+use exuehui
+db.createUser({ user: '1iURI-exuehui', pwd: 'rootroot', roles: [ { role: "readWrite", db: "exuehui" } ] });
+```
+
+#### 7. 重新运行容器，并添加--auth
+
+```
+docker run --name mongodb-server0 \
+    --restart always \
+    -v /data/mongodb0:/data/db \
+    -v /data/mongodb0_conf:/opt/keyfile \
+    -p 27017:27017 \
+    -d d22 \
+    --smallfiles \
+    --keyFile /opt/keyfile/mongodb-keyfile \
+    --auth \
+    --replSet exuehui-mongo-set 
+
+docker run --name mongodb-server1 \
+    --restart always \
+    -v /data/mongodb1:/data/db \
+    -v /data/mongodb1_conf:/opt/keyfile \
+    -p 27018:27017 \
+    -d d22 \
+    --smallfiles \
+    --keyFile /opt/keyfile/mongodb-keyfile \
+    --auth \
+    --replSet exuehui-mongo-set
+
+docker run --name mongodb-server0 \
+    --restart always \
+    -v /data/mongodb0:/data/db \
+    -v /data/mongodb0_conf:/opt/keyfile \
+    -p 37017:27017 \
+    -d d22 \
+    --smallfiles \
+    --keyFile /opt/keyfile/mongodb-keyfile \
+    --auth \
+    --replSet exuehui-mongo-set
+```
+
+
 
 > 参考资料：
 >
