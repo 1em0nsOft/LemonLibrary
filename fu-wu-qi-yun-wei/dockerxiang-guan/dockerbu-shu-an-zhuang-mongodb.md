@@ -65,9 +65,36 @@ db.createUser({ user: '1iURI', pwd: 'rootroot', roles: [ { role: "userAdminAnyDa
 #### 1. 启动三个mongodb进程 {#1-启动三个mongodb进程}
 
 ```
-docker run --name mongodb-server0 -v /data/mongodb0:/data/db -p 27017:27017 -d d22 --replSet exuehui-mongo-set
-docker run --name mongodb-server1 -v /data/mongodb1:/data/db -p 27018:27017 -d d22 --replSet exuehui-mongo-set
-docker run --name mongodb-server2 -v /data/mongodb2:/data/db -p 37017:27017 -d d22 --replSet exuehui-mongo-set
+docker run --name mongodb-server0 \
+    --restart always \
+    -v /data/mongodb0:/data/db \
+    -v /data/mongodb0_conf:/opt/keyfile \
+    -p 27017:27017 \
+    -d d22 \
+    --smallfiles \
+    --keyFile /opt/keyfile/mongodb-keyfile \
+    --replSet exuehui-mongo-set 
+
+docker run --name mongodb-server1 \
+    --restart always \
+    -v /data/mongodb1:/data/db \
+    -v /data/mongodb1_conf:/opt/keyfile \
+    -p 27018:27017 \
+    -d d22 \
+    --smallfiles \
+    --keyFile /opt/keyfile/mongodb-keyfile \
+    --replSet exuehui-mongo-set
+
+docker run --name mongodb-server0 \
+    --restart always \
+    -v /data/mongodb0:/data/db \
+    -v /data/mongodb0_conf:/opt/keyfile \
+    -p 37017:27017 \
+    -d d22 \
+    --smallfiles \
+    --keyFile /opt/keyfile/mongodb-keyfile \
+    --replSet exuehui-mongo-set
+
 ```
 
 #### 2 进入 mongodb docker {#2-进入-mongodb-docker}
