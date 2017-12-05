@@ -4,8 +4,6 @@
 docker pull registry.docker-cn.com/library/mongo
 ```
 
-### 
-
 ### 创建本地数据文件夹
 
 ```
@@ -97,10 +95,6 @@ rs.initiate({ _id:"exuehui-mongo-set", members:[
 ```
 rs.status()
 ```
-
-
-
-
 
 > 参考资料：
 >
