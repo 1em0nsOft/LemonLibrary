@@ -36,8 +36,6 @@ docker exec -it some-mongo mongo admin
 db.createUser({ user: '1iURI', pwd: 'rootroot', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
 ```
 
-
-
 ### MongoDB用户权限
 
 内建的角色
@@ -61,8 +59,6 @@ db.createUser({ user: '1iURI', pwd: 'rootroot', roles: [ { role: "userAdminAnyDa
 > **userAdminAnyDatabase**：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限  
 > **dbAdminAnyDatabase**：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。  
 > **root**：只在admin数据库中可用。超级账号，超级权限
-
-
 
 ### 副本集形式部署
 
@@ -108,7 +104,7 @@ rs.status()
 
 > 参考资料：
 >
-> http://tcrct.iteye.com/blog/2108099
+> [http://tcrct.iteye.com/blog/2108099](http://tcrct.iteye.com/blog/2108099)
 
 
 
