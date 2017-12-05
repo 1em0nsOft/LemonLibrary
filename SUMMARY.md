@@ -12,6 +12,7 @@
     * [Docker部署安装Confluence](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-confluence.md)
     * [Docker部署安装MySQL5.7](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-mysql5-7.md)
     * [Docker部署安装MyCAT](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-mycat.md)
+    * [Docker部署安装MongoDB](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-mongodb.md)
 * [后台开发相关](hou-tai-kai-fa-xiang-guan.md)
   * [Java知识库](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku.md)
     * [SpringBoot+MyBatis让日志输出SQL的方法](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku/springboot+mybatisrang-ri-zhi-shu-chu-sql-de-fang-fa.md)
