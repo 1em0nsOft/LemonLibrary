@@ -14,6 +14,7 @@
     * [Docker部署安装MyCAT](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-mycat.md)
     * [Docker部署安装MongoDB](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-mongodb.md)
     * [Docker部署安装RabbitMQ](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-rabbitmq.md)
+    * [Docker部署安装Nginx](fu-wu-qi-yun-wei/dockerxiang-guan/dockerbu-shu-an-zhuang-nginx.md)
 * [后台开发相关](hou-tai-kai-fa-xiang-guan.md)
   * [Java知识库](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku.md)
     * [SpringBoot+MyBatis让日志输出SQL的方法](hou-tai-kai-fa-xiang-guan/javazhi-shi-ku/springboot+mybatisrang-ri-zhi-shu-chu-sql-de-fang-fa.md)
