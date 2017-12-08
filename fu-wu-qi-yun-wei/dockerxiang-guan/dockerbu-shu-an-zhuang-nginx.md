@@ -20,7 +20,7 @@ $ docker rm -f tmp-nginx-container
 ### 运行容器
 
 ```
-docker run --name nginx-server -p 80:80 -v /data/data/nginx/conf:/etc/nginx/custom_conf -v /data/data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro  -v /data/data/nginx/html:/usr/share/nginx/html:ro -d 9e7424e5dbae
+docker run --name nginx-server --restart always -p 443:443 -p 80:80 -v /data/data/nginx/conf:/etc/nginx/custom_conf -v /data/data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro  -v /data/data/nginx/html:/usr/share/nginx/html:ro -d 9e7424e5dbae
 ```
 
 ### 配置nginx
