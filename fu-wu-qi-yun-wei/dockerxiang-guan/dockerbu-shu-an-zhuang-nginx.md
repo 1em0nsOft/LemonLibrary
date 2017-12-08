@@ -63,11 +63,33 @@ http {
 }
 ```
 
-##### 重点是配置文件中最后一行 
+##### 重点是配置文件中最后一行 加入配置文件扫描目录
+
 ```
 include /etc/nginx/custom_conf/*.conf;
 
 ```
-#### 加入配置文件扫描目录
 
+- 在/data/data/nginx/conf中添加反向代理配置文件
+```
+server {
+    listen       80;
+    server_name  git.*;
+
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-Ip $remote_addr;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_pass http://118.89.232.188:7990/;
+        proxy_redirect off;
+    }
+}
+```
+
+### 重启nginx即可
+
+```
+docker restart 59d49622523c
+```
 
