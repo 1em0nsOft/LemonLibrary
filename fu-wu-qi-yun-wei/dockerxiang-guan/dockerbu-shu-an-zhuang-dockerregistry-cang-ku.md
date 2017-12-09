@@ -25,6 +25,11 @@ docker run -d -p 5000:5000 --restart=always \
   registry.docker-cn.com/library/registry
 ```
 
+### 登录docker registry
+```
+docker login docker.lemonlib.com
+```
+
 ### 验证是否运行成功
 ```
 curl http://192.168.0.100:5000/v2/_catalog
@@ -44,6 +49,33 @@ docker run \
   registry.docker-cn.com/konradkleine/docker-registry-frontend
 ```
 
+
+### nginx反向代理配置
+```
+server {
+        listen  80;
+        listen  443 ssl;
+        server_name  docker.lemonlib.com;
+        ssl on;
+        ssl_certificate /etc/nginx/custom_conf/ssl/1_docker.lemonlib.com_bundle.crt;
+        ssl_certificate_key /etc/nginx/custom_conf/ssl/2_docker.lemonlib.com.key;
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置
+        ssl_prefer_server_ciphers on;
+
+    location / {
+        proxy_set_header X-Forwarded-Proto https;
+
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-Ip $remote_addr;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_pass http://yourip:5000/;
+        proxy_redirect off;
+    }
+}
+```
 
 
 ### 错误解决
